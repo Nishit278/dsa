@@ -1,0 +1,1 @@
+{"name":"Local: heap_intro","url":"/home/nishitbansal/Documents/DSA/Placement Prep/Heap/heap_intro.cpp","tests":[{"id":1658211583344,"input":"10\n1 2 3 17 19 36 7 25 100 -1","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/nishitbansal/Documents/DSA/Placement Prep/Heap/heap_intro.cpp","group":"local","local":true}

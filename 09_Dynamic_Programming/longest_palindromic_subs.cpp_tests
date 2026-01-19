@@ -1,0 +1,35 @@
+[
+	{
+		"test": "babad\n"
+	},
+	{
+		"test": "cbbd\n"
+	},
+	{
+		"test": "\"aacabdkacaa\"\n"
+	},
+	{
+		"test": "aacabdkacaa\n"
+	},
+	{
+		"test": "aaaa\n"
+	},
+	{
+		"test": "aaabkaaa\n"
+	},
+	{
+		"test": "bb\n"
+	},
+	{
+		"test": "a\n"
+	},
+	{
+		"test": "abcba\n"
+	},
+	{
+		"test": "abba\n"
+	},
+	{
+		"test": "abbba\n"
+	}
+]

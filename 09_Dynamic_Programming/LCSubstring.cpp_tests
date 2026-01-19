@@ -1,0 +1,26 @@
+[
+	{
+		"test": "abcdef\nabxdef\n"
+	},
+	{
+		"test": "abcde\nabxde\n"
+	},
+	{
+		"test": "ABCDGH\nACDGHR\n"
+	},
+	{
+		"test": "babad\ndabab\n"
+	},
+	{
+		"test": "ac\nca\n"
+	},
+	{
+		"test": "cbbd\ndbbc\n"
+	},
+	{
+		"test": "aacabdkacaa\naacakdbacaa\n"
+	},
+	{
+		"test": "aebcbda\nadbcbea\n"
+	}
+]

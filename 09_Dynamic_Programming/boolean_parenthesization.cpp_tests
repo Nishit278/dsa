@@ -1,0 +1,14 @@
+[
+	{
+		"test": "T^F|F\n"
+	},
+	{
+		"test": "T|T&F^T\n"
+	},
+	{
+		"test": "T|F^F&T|F^F^F\n"
+	},
+	{
+		"test": "T|F^F&T|F^F^F^T\n"
+	}
+]
