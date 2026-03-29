@@ -1,0 +1,60 @@
+// LeetCode 4 — Median of Two Sorted Arrays
+// O(log(min(m, n))) : binary search partition on the smaller array
+#include <bits/stdc++.h>
+using namespace std;
+
+class Solution
+{
+public:
+    double findMedianSortedArrays(vector<int> &nums1, vector<int> &nums2)
+    {
+        if (nums1.size() > nums2.size())
+            return findMedianSortedArrays(nums2, nums1);
+
+        int m = (int)nums1.size();
+        int n = (int)nums2.size();
+        int lo = 0, hi = m;
+        int half = (m + n + 1) / 2;
+
+        while (lo <= hi)
+        {
+            int i = lo + (hi - lo) / 2; // partition after nums1[i-1]
+            int j = half - i;
+
+            int left1 = (i == 0) ? INT_MIN : nums1[i - 1];
+            int right1 = (i == m) ? INT_MAX : nums1[i];
+            int left2 = (j == 0) ? INT_MIN : nums2[j - 1];
+            int right2 = (j == n) ? INT_MAX : nums2[j];
+
+            if (left1 <= right2 && left2 <= right1)
+            {
+                if ((m + n) % 2 == 0)
+                    return (max(left1, left2) + min(right1, right2)) / 2.0;
+                return max(left1, left2);
+            }
+            if (left1 > right2)
+                hi = i - 1;
+            else
+                lo = i + 1;
+        }
+        return 0.0;
+    }
+};
+
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    Solution sol;
+
+    vector<int> a = {1, 3};
+    vector<int> b = {2};
+    cout << fixed << setprecision(5) << sol.findMedianSortedArrays(a, b) << "\n"; // 2.0
+
+    vector<int> c = {1, 2};
+    vector<int> d = {3, 4};
+    cout << fixed << setprecision(5) << sol.findMedianSortedArrays(c, d) << "\n"; // 2.5
+
+    return 0;
+}
