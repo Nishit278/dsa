@@ -1,55 +1,42 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool isValid(int nums[], int n, int c, int maxPages)
-{
-    int student = 1;
-    int sum = 0;
-    for (int i = 0; i < n; i++)
-    {
-        sum += nums[i];
-        if (sum > maxPages)
-        {
-            student++;
-            sum = nums[i];
+bool canAllocateBooks(vector<int> &arr, int k, int pages){
+    int students = 1, booksAllotted = 0;
+    for(int i: arr){
+        booksAllotted += i;
+        if(booksAllotted > pages){
+            students++;
+            booksAllotted = i;
         }
     }
-    if (student > c)
-    {
-        return false;
-    }
-    return true;
+    // cout << students << " " << k << " " << pages << endl;
+    return students <= k;
 }
 
-int findPages(int *nums, int n, int c)
+int findPages(int *arr, int k)
 {
-    if (c > n)
-        return -1;
-    int e = 0, s = 0, res = 0;
-    for (int i = 0; i < n; i++)
-    {
-        e += nums[i];
-        s = max(s, nums[i]);
-    }
-    while (s <= e)
-    {
-        int mid = s + (e - s) / 2;
-        if (isValid(nums, n, c, mid))
-        {
-            res = mid;
-            e = mid - 1;
+    int n = arr.size();
+        if(k > n) return -1;
+        int lo = 0, hi = 0;
+        for(int i: arr){
+            hi  += i;
+            lo = max(lo, i);
         }
-        else
-        {
-            s = mid + 1;
+        while(lo <= hi){
+            int mid = lo + (hi - lo) / 2;
+            if(canAllocateBooks(arr, k, mid)){
+                hi = mid-1;
+            } else {
+                lo = mid+1;
+            }
         }
-    }
-    return res;
+        return lo;
 }
 
 int main()
 {
     int books[] = {10, 20, 30, 40};
     int studs = 2;
-    cout << findPages(books, 4, studs) << endl;
+    cout << findPages(books, studs) << endl;
 }
