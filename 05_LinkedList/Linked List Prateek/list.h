@@ -72,7 +72,6 @@ public:
 				ptr = ptr->next;
 			}
 			ptr-> next = n;
-			ptr = n;
 		}
 	}
 	void insert(int data, int pos){
@@ -80,11 +79,15 @@ public:
 			push_front_tail(data);
 			return;
 		}
-		Node* n = new Node(data);
 		Node* temp = head;
-		while(--pos){
+		while(--pos && temp != NULL){
 			temp = temp->next;
 		}
+		if(temp == NULL){
+			cout << "Position out of bounds\n";
+			return;
+		}
+		Node* n = new Node(data);
 		n->next = temp->next;
 		temp->next = n;
 	}
